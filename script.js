@@ -1,7 +1,7 @@
-function validateForm(event) {
+function submitForm(event) {
     event.preventDefault();
 
-    // You can add more sophisticated validation here
+    // Validate the form (you can add more sophisticated validation here)
 
     // Simple validation example
     const emailInput = document.getElementById('email');
@@ -13,5 +13,21 @@ function validateForm(event) {
     }
 
     // If validation passes, you can proceed with form submission
-    alert('Form submitted successfully! (Note: Email sending is not implemented in client-side)');
+
+    // Use fetch API to send form data to the server-side script
+    fetch('https://idcindia.net/send_email.php', { // Replace with your server domain
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: new URLSearchParams(new FormData(event.target)),
+    })
+    .then(response => response.text())
+    .then(data => {
+        alert(data); // Display the server's response
+    })
+    .catch(error => {
+        console.error('Error:', error);
+    });
 }
+
