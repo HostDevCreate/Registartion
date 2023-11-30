@@ -15,7 +15,7 @@ function submitForm(event) {
     // If validation passes, you can proceed with form submission
 
     // Use fetch API to send form data to the server-side script
-    fetch('https://idcindia.net/send_email.php', { // Replace with your server domain
+    fetch('https://cors-anywhere.herokuapp.com/https://hostdevcreate.github.io/Registartion//send_email.php', { // Replace with your server domain
         method: 'POST',
         headers: {
             'Content-Type': 'application/x-www-form-urlencoded',
